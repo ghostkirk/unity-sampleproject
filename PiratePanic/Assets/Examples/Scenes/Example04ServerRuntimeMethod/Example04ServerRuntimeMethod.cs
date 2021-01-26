@@ -67,7 +67,7 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 	public class Example04ServerRuntimeMethod : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton AddNumbersButton { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton _AddNumbersButton { get { return _examplesUI.ExampleButton03; } }
 
 
 		//  Fields ----------------------------------------
@@ -81,7 +81,7 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 			_exampleSessionClient = new ExampleSessionClient();
 			await _exampleSessionClient.Authenticate();
 
-			AddNumbersButton.Button.onClick.AddListener(AddNumbersButton_OnClicked);
+			_AddNumbersButton.Button.onClick.AddListener(AddNumbersButton_OnClicked);
 			AddNumbersButton_OnClicked();
 		}
 		 

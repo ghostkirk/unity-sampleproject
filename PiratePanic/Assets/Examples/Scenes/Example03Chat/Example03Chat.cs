@@ -30,12 +30,10 @@ namespace Nakama.Examples.Example03Chat
 	/// </summary>
 	public class Example03Chat : MonoBehaviour
 	{
-		//  Events ----------------------------------------
-
 		//  Properties ------------------------------------
-		private ExampleButton SendChatMessageButton { get { return _examplesUI.ExampleButton01; } }
-		private ExampleButton DisconnectButton { get { return _examplesUI.ExampleButton02; } }
-		private ExampleButton ConnectButton { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton _SendChatMessageButton { get { return _examplesUI.ExampleButton01; } }
+		private ExampleButton _DisconnectButton { get { return _examplesUI.ExampleButton02; } }
+		private ExampleButton _ConnectButton { get { return _examplesUI.ExampleButton03; } }
 
 
 		//  Fields ----------------------------------------
@@ -51,9 +49,9 @@ namespace Nakama.Examples.Example03Chat
 		//  Unity Methods   -------------------------------
 		protected async void Start()
 		{
-			SendChatMessageButton.Button.onClick.AddListener(SendChatMessageButton_OnClicked);
-			DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
-			ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
+			_SendChatMessageButton.Button.onClick.AddListener(SendChatMessageButton_OnClicked);
+			_DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
+			_ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
 
 			// Create Client
 			_exampleSessionClient = new ExampleSessionClient();
@@ -72,7 +70,6 @@ namespace Nakama.Examples.Example03Chat
 
 			RefreshUI();
 			ConnectButton_OnClicked();
-
 		}
 
 
@@ -81,9 +78,9 @@ namespace Nakama.Examples.Example03Chat
 		{
 			// Refresh button interactivity
 			bool isConnected = _socket.IsConnected;
-			SendChatMessageButton.Button.interactable = isConnected;
-			DisconnectButton.Button.interactable = isConnected;
-			ConnectButton.Button.interactable = !isConnected;
+			_SendChatMessageButton.Button.interactable = isConnected;
+			_DisconnectButton.Button.interactable = isConnected;
+			_ConnectButton.Button.interactable = !isConnected;
 
 			// Display text info
 			StringBuilder stringBuilder = new StringBuilder();
@@ -113,6 +110,7 @@ namespace Nakama.Examples.Example03Chat
 		//  Event Handlers --------------------------------
 		private async void ConnectButton_OnClicked()
 		{
+			// Empty UI
 			RefreshUI();
 
 			// Connect Socket
@@ -124,6 +122,7 @@ namespace Nakama.Examples.Example03Chat
 			bool isHidden = false;
 			_channel = await _socket.JoinChatAsync(chatRoomName, ChannelType.Room, isPersistent, isHidden);
 
+			// Populate UI
 			RefreshUI();
 		}
 
@@ -141,9 +140,14 @@ namespace Nakama.Examples.Example03Chat
 		{
 			SetBodyText($"DisconnectButton_OnClicked()");
 
+			// Empty UI
 			RefreshUI();
+
 			await _socket.LeaveChatAsync(_channel);
+
 			await _socket.CloseAsync();
+
+			// Populate UI
 			RefreshUI();
 		}
 

@@ -61,7 +61,5 @@ namespace Nakama.Templates
 		{
 
 		}
-
-
 	}
 }

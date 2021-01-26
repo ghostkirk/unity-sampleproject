@@ -29,14 +29,16 @@ namespace Nakama.Examples
 
 
 		//  Fields ----------------------------------------
-		private const string DeviceIdKey = "MyDeviceIdKey";
-		private const string AuthTokenKey = "MyAuthTokenKey";
+		private const string _DeviceIdKey = "MyDeviceIdKey";
+		private const string _AuthTokenKey = "MyAuthTokenKey";
 		private ISession _session = null;
 		private IClient _client = null;
+
 
 		//  Constructor   ---------------------------------
 		public ExampleSessionClient()
 		{
+
 		}
 
 		//  Other Methods ---------------------------------
@@ -50,6 +52,7 @@ namespace Nakama.Examples
 			return DateTime.UtcNow.AddYears(1);
 		}
 
+
 		//  Event Handlers --------------------------------
 		public async Task Authenticate()
 		{
@@ -60,15 +63,15 @@ namespace Nakama.Examples
 
 			// Restore session from PlayerPrefs if possible.
 			var deviceId = SystemInfo.deviceUniqueIdentifier;
-			var sessionToken = PlayerPrefs.GetString(AuthTokenKey);
+			var sessionToken = PlayerPrefs.GetString(_AuthTokenKey);
 			var currentDateTime = GetMockCurrentDateTime();
 			_session = Nakama.Session.Restore(sessionToken);
 
 			if (_session == null || _session.HasExpired(currentDateTime))
 			{
 				_session = await _client.AuthenticateDeviceAsync(deviceId);
-				PlayerPrefs.SetString(DeviceIdKey, deviceId);
-				PlayerPrefs.SetString(AuthTokenKey, _session.AuthToken);
+				PlayerPrefs.SetString(_DeviceIdKey, deviceId);
+				PlayerPrefs.SetString(_AuthTokenKey, _session.AuthToken);
 			}
 		}
 

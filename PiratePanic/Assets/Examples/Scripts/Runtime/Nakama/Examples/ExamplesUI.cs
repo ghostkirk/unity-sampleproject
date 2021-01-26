@@ -37,6 +37,7 @@ namespace Nakama.Examples
 		public ExampleButton ExampleButton02 { get { return _exampleButton02; } }
 		public ExampleButton ExampleButton03 { get { return _exampleButton03; } }
 
+
 		//  Fields ----------------------------------------
 		[SerializeField] private string _titleTextMessage = "";
 		[SerializeField] private Text _titleText = null;
@@ -44,6 +45,7 @@ namespace Nakama.Examples
 		[SerializeField] private ExampleButton _exampleButton01 = null;
 		[SerializeField] private ExampleButton _exampleButton02 = null;
 		[SerializeField] private ExampleButton _exampleButton03 = null;
+
 
 		//  Unity Methods   -------------------------------
 		protected void OnValidate()

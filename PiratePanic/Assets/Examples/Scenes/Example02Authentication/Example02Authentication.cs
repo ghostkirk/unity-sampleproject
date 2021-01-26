@@ -29,26 +29,28 @@ namespace Nakama.Examples.Example02Authentication
 	public class Example02Authentication : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton ReauthenticateButton { get { return _examplesUI.ExampleButton02; } }
-		private ExampleButton AuthenticateButton { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton _ReauthenticateButton { get { return _examplesUI.ExampleButton02; } }
+		private ExampleButton _AuthenticateButton { get { return _examplesUI.ExampleButton03; } }
 
 
 		//  Fields ----------------------------------------
 		[SerializeField] private ExamplesUI _examplesUI = null;
 
-		private const string DeviceIdKey = "MyDeviceIdKey";
-		private const string AuthTokenKey = "MyAuthTokenKey";
+		private const string _DeviceIdKey = "MyDeviceIdKey";
+		private const string _AuthTokenKey = "MyAuthTokenKey";
 		private ISession _session = null;
 		private IClient _client = null;
+
 
 		//  Unity Methods   -------------------------------
 		protected void Start()
 		{
-			ReauthenticateButton.Button.onClick.AddListener(ReauthenticateButton_OnClicked);
-			AuthenticateButton.Button.onClick.AddListener(AuthenticateButton_OnClicked);
+			_ReauthenticateButton.Button.onClick.AddListener(ReauthenticateButton_OnClicked);
+			_AuthenticateButton.Button.onClick.AddListener(AuthenticateButton_OnClicked);
 			RefreshUI();
 			AuthenticateButton_OnClicked();
 		}
+
 
 		//  Other Methods ---------------------------------
 		private void SetBodyText(string message)
@@ -62,8 +64,8 @@ namespace Nakama.Examples.Example02Authentication
 		{
 			// Refresh button interactivity
 			bool isSessionActive = _session != null && !_session.IsExpired;
-			ReauthenticateButton.Button.interactable = isSessionActive;
-			AuthenticateButton.Button.interactable = !isSessionActive;
+			_ReauthenticateButton.Button.interactable = isSessionActive;
+			_AuthenticateButton.Button.interactable = !isSessionActive;
 		}
 
 
@@ -79,7 +81,7 @@ namespace Nakama.Examples.Example02Authentication
 		//  Event Handlers --------------------------------
 		private async void AuthenticateButton_OnClicked()
 		{
-			AuthenticateButton.Button.interactable = false;
+			_AuthenticateButton.Button.interactable = false;
 
 			StringBuilder stringBuilder = new StringBuilder();
 
@@ -88,15 +90,15 @@ namespace Nakama.Examples.Example02Authentication
 
 			// Restore session from PlayerPrefs if possible.
 			var deviceId = SystemInfo.deviceUniqueIdentifier;
-			var sessionToken = PlayerPrefs.GetString(AuthTokenKey);
+			var sessionToken = PlayerPrefs.GetString(_AuthTokenKey);
 			var currentDateTime = GetMockCurrentDateTime();
 			_session = Session.Restore(sessionToken);
 
 			if (_session == null || _session.HasExpired(currentDateTime))
 			{
 				_session = await _client.AuthenticateDeviceAsync(deviceId);
-				PlayerPrefs.SetString(DeviceIdKey, deviceId);
-				PlayerPrefs.SetString(AuthTokenKey, _session.AuthToken);
+				PlayerPrefs.SetString(_DeviceIdKey, deviceId);
+				PlayerPrefs.SetString(_AuthTokenKey, _session.AuthToken);
 
 				stringBuilder.AppendLine($"Session Created At {DateTime.Now.ToLocalTime()}");
 			}

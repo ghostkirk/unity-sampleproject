@@ -30,9 +30,11 @@ namespace Nakama.Examples
 		public Button Button { get { return _button; } }
 		public Text ButtonText { get { return _button.GetComponentInChildren<Text>(); } }
 
+
 		//  Fields ----------------------------------------
 		[SerializeField] private Button _button = null;
 		[SerializeField] private string _textMessage = "";
+
 
 		//  Other Methods ---------------------------------
 		public void Validate()

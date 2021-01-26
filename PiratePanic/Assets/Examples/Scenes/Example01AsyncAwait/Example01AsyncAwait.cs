@@ -29,18 +29,21 @@ namespace Nakama.Examples.Example01AsyncAwait
 	public class Example01AsyncAwait : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton CallAsyncMethodButton { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton _CallAsyncMethodButton { get { return _examplesUI.ExampleButton03; } }
+
 
 		//  Fields ----------------------------------------
 		[SerializeField] private ExamplesUI _examplesUI = null;
 
+
 		//  Unity Methods   -------------------------------
 		protected void Start()
 		{
-			CallAsyncMethodButton.Button.interactable = true;
-			CallAsyncMethodButton.Button.onClick.AddListener(CallAsyncMethodButton_OnClicked);
+			_CallAsyncMethodButton.Button.interactable = true;
+			_CallAsyncMethodButton.Button.onClick.AddListener(CallAsyncMethodButton_OnClicked);
 			CallAsyncMethodButton_OnClicked();
 		}
+
 
 		//  Other Methods ---------------------------------
 		private void ClearBodyText()
@@ -48,11 +51,13 @@ namespace Nakama.Examples.Example01AsyncAwait
 			_examplesUI.BodyText.text = "";
 		}
 
+
 		private void AddToBodyText(string message)
 		{
 			_examplesUI.BodyText.text += message + "\n";
 			Debug.Log(message);
 		}
+
 
 		private async void Method01()
 		{
@@ -75,13 +80,14 @@ namespace Nakama.Examples.Example01AsyncAwait
 			}
 		}
 
+
 		/// <summary>
 		/// Asynchronously returns an int value
 		/// </summary>
 		/// <returns></returns>
 		private async Task<int> Method02()
 		{
-			CallAsyncMethodButton.Button.interactable = false;
+			_CallAsyncMethodButton.Button.interactable = false;
 
 			AddToBodyText("\tMethod02() Begins ...");
 
@@ -91,10 +97,11 @@ namespace Nakama.Examples.Example01AsyncAwait
 
 			AddToBodyText($"\tMethod02() Ends. DelayInMilliseconds = {delayInMilliseconds}");
 
-			CallAsyncMethodButton.Button.interactable = true;
+			_CallAsyncMethodButton.Button.interactable = true;
 
 			return delayInMilliseconds;
 		}
+
 
 		//  Event Handlers --------------------------------
 		private void CallAsyncMethodButton_OnClicked()

@@ -57,9 +57,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 	public class Example05AuthoritativeMultiplayer : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton SendMatchStateButton { get { return _examplesUI.ExampleButton01; } }
-		private ExampleButton DisconnectButton { get { return _examplesUI.ExampleButton02; } }
-		private ExampleButton ConnectButton { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton _SendMatchStateButton { get { return _examplesUI.ExampleButton01; } }
+		private ExampleButton _DisconnectButton { get { return _examplesUI.ExampleButton02; } }
+		private ExampleButton _ConnectButton { get { return _examplesUI.ExampleButton03; } }
 
 
 		//  Fields ----------------------------------------
@@ -75,9 +75,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		//  Unity Methods   -------------------------------
 		protected async void Start()
 		{
-			SendMatchStateButton.Button.onClick.AddListener(SendMatchStateButton_OnClicked);
-			DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
-			ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
+			_SendMatchStateButton.Button.onClick.AddListener(SendMatchStateButton_OnClicked);
+			_DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
+			_ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
 
 			// Create Client
 			_exampleSessionClient = new ExampleSessionClient();
@@ -105,9 +105,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		{
 			// Refresh button interactivity
 			bool isConnected = _socket.IsConnected;
-			SendMatchStateButton.Button.interactable = isConnected;
-			DisconnectButton.Button.interactable = isConnected;
-			ConnectButton.Button.interactable = !isConnected;
+			_SendMatchStateButton.Button.interactable = isConnected;
+			_DisconnectButton.Button.interactable = isConnected;
+			_ConnectButton.Button.interactable = !isConnected;
 
 			// Display text info
 			StringBuilder stringBuilder = new StringBuilder();
@@ -185,9 +185,11 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			SetBodyText(stringBuilder.ToString());
 		}
 
+
 		//  Event Handlers --------------------------------
 		private async void ConnectButton_OnClicked()
 		{
+			// Empty UI
 			RefreshUI();
 
 			// Connect Socket
@@ -199,6 +201,7 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			// Join Match without a full matchmaking process
 			_match = await _socket.JoinMatchAsync(createMatchAsyncMatch.Id);
 
+			// Populate UI
 			RefreshUI();
 		}
 
@@ -217,8 +220,12 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		{
 			SetBodyText($"DisconnectButton_OnClicked()");
 
+			// Empty UI
 			RefreshUI();
+
 			await _socket.CloseAsync();
+
+			// Populate UI
 			RefreshUI();
 		}
 

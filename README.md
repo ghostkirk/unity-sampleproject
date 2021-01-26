@@ -71,7 +71,7 @@ The Unity Pirate Pananic game client wraps the flexible Nakama SDK concepts into
 
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/Diagram_3_Pirate_Panic_Class.png">
 
-* **Scene01MainMenuController** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/Scene01MainMenuController.cs">Source</a>) - Handles creation of Client, Socket, Account, and Session for interaction with the Nakama server.
+* **Scene01MainMenuController** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/Scene01MainMenuController.cs">Source</a>) - Handles creation of Client, Socket, Account, and Session for interaction with the Nakama server.
 * **GameConnection** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/GameConnection.cs">Source</a>) - Stores references to Client, Socket, Account, and Session for interaction with the Nakama server.
 * **GameStateManager** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/GameStateManager.cs">Source</a>) - Manages client-server communication, including MatchState, with the Nakama server.
 

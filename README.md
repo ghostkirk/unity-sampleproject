@@ -131,16 +131,6 @@ Some other useful docker-compose commands are:
 * `down` - will stop all running containers defined by the compose file.
 * `down -v` - same as above but will also purge the volumes which store data for the containers.
 
-__NOTE:__ Before running `docker-compose` you may need to adjust the folder path within the `docker-compose-postgres.yml` file on Windows. For example, a user with the absolute path of `C:\Projects\unity-sampleproject\ServerModules\lua`, must update the `docker-compose-postgres.yml` file to include:
-
-```yml
-...
-  volumes:
-    - C:\Projects\unity-sampleproject\ServerModules\lua:/nakama/data/modules
-...
-```
-
-
 #### 2. Setup Unity
 
 The Unity Editor is required. Download it from <a href="https://unity3d.com/get-unity/download">Unity3d.com/get-unity/download</a>.

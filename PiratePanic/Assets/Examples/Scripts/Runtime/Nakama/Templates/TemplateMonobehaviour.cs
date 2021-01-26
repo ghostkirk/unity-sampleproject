@@ -27,6 +27,7 @@ namespace Nakama.Templates
 		public GameObject SampleGameObject { get { return _sampleGameObject; } set { _sampleGameObject = value; } }
 		private int _SampleValue { get { return _sampleValue; } }
 
+
 		//  Fields ----------------------------------------
 		public const int DaysPerYear = 365;
 		private const int _MonthsPerYear = 12;
@@ -34,16 +35,19 @@ namespace Nakama.Templates
 		private int _sampleValue = 10;
 		[SerializeField] private GameObject _sampleGameObject = null;
 
+
 		//  Unity Methods   -------------------------------
 		protected void Awake()
 		{
 
 		}
 
+
 		protected void Start()
 		{
 
 		}
+
 
 		//  Other Methods ---------------------------------
 		private void SampleMethod()
@@ -51,10 +55,13 @@ namespace Nakama.Templates
 
 		}
 
+
 		//  Event Handlers --------------------------------
 		private void OtherClass_OnCompleted()
 		{
 
 		}
+
+
 	}
 }

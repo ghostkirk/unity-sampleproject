@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1004031990}
   - component: {fileID: 1004031989}
   m_Layer: 0
-  m_Name: Example05AuthoritativeMultiplayer
+  m_Name: Example05RealtimeMultiplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _titleTextMessage
-      value: Nakama Authoritative Multiplayer
+      value: Nakama Realtime Multiplayer
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton01._textMessage

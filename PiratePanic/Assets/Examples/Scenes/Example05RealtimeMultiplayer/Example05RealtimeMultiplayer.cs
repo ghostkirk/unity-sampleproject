@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Nakama.Examples.Example05AuthoritativeMultiplayer
+namespace Nakama.Examples.Example05RealtimeMultiplayer
 {
 	/// <summary>
 	/// Used to easily read/write op code
@@ -51,10 +51,10 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 	/// <summary>
 	/// This example showcases realtime multiplayer with Nakama server.
 	///
-	/// See <a href="https://heroiclabs.com/docs/gameplay-multiplayer-server-multiplayer/">Nakama Docs</a> for more info.
+	/// See <a href="https://heroiclabs.com/docs/gameplay-multiplayer-realtime/">Nakama Docs</a> for more info.
 	///
 	/// </summary>
-	public class Example05AuthoritativeMultiplayer : MonoBehaviour
+	public class Example05RealtimeMultiplayer : MonoBehaviour
 	{
 		//  Properties ------------------------------------
 		private ExampleButton _SendMatchStateButton { get { return _examplesUI.ExampleButton01; } }

@@ -22,3 +22,4 @@ MonoBehaviour:
   _isDebug: 0
   _isVerboseLogging: 0
   _willDeleteAllPlayerPrefsOnInit: 0
+  _randomDeviceId: 1

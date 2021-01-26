@@ -28,7 +28,6 @@ namespace PiratePanic
 		//  Properties ------------------------------------
 		public string SceneNameMainMenu { get { return _sceneNameMainMenu; } }
 		public string SceneNameBattle { get { return _sceneNameBattle; } }
-		public bool RandomDeviceId { get { return _randomDeviceId; } }
 
 		// Gameplay - Local Player
 		public int StartingGold { get { return _startingGold; } }
@@ -39,6 +38,7 @@ namespace PiratePanic
 		public bool IsDebug { get { return _isDebug; } }
 		public bool WillDeleteAllPlayerPrefsOnInit { get { return IsDebug && _willDeleteAllPlayerPrefsOnInit; } }
 		public bool IsVerboseLogging { get { return IsDebug &&_isVerboseLogging; } }
+		public bool RandomDeviceId { get { return _randomDeviceId; } }
 
 		// Audio
 		public bool IsAudioEnabled { get { return _isAudioEnabled; } }

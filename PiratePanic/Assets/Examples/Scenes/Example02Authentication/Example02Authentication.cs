@@ -18,7 +18,7 @@ using System;
 using System.Text;
 using UnityEngine;
 
-namespace Nakama.Examples.Example_02_Authentication
+namespace Nakama.Examples.Example02Authentication
 {
 	/// <summary>
 	/// This example showcases user authentication with Nakama server.
@@ -26,7 +26,7 @@ namespace Nakama.Examples.Example_02_Authentication
 	/// See <a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a> for more info.
 	///
 	/// </summary>
-	public class Example_02_Authentication : MonoBehaviour
+	public class Example02Authentication : MonoBehaviour
 	{
 		//  Properties ------------------------------------
 		private ExampleButton ReauthenticateButton { get { return _examplesUI.ExampleButton02; } }

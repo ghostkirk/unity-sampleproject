@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1004031990}
   - component: {fileID: 1004031989}
   m_Layer: 0
-  m_Name: Example_02_Authentication
+  m_Name: Example01AsyncAwait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004031988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac0c5097ae5f853459ebf3fc2fb743d7, type: 3}
+  m_Script: {fileID: 11500000, guid: a86101986a10c8d4ba14a88f34a61a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _examplesUI: {fileID: 84262963}
@@ -530,18 +530,6 @@ PrefabInstance:
     - target: {fileID: 7587579163984248928, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
-      propertyPath: _titleTextMessage
-      value: Nakama Authentication
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
-      propertyPath: _exampleButton02._textMessage
-      value: Reauthenticate
-      objectReference: {fileID: 0}
-    - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
-      propertyPath: _exampleButton03._textMessage
-      value: Authenticate
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248956, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: m_Name

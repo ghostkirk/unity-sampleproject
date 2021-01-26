@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 1004031990}
   - component: {fileID: 1004031989}
   m_Layer: 0
-  m_Name: Example_05_Authoritative_Multiplayer
+  m_Name: Example04ServerRuntimeMethod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004031988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53826cf05ba18b4cbe31d366887469f, type: 3}
+  m_Script: {fileID: 11500000, guid: 48abedf7de0b40b48a4e568c19e6f3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _examplesUI: {fileID: 84262963}
@@ -345,7 +345,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -533,19 +533,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _titleTextMessage
-      value: Nakama Authoritative Multiplayer
+      value: Nakama Server Runtime Method
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton01._textMessage
-      value: Send Match State
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton02._textMessage
-      value: Disconnect
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton03._textMessage
-      value: Connect
+      value: Add Numbers
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248956, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: m_Name

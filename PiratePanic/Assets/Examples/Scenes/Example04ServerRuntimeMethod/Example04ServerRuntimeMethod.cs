@@ -20,7 +20,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Nakama.Examples.Example_04_Server_Runtime_Method
+namespace Nakama.Examples.Example04ServerRuntimeMethod
 {
 
 	/// <summary>
@@ -64,7 +64,7 @@ namespace Nakama.Examples.Example_04_Server_Runtime_Method
 	/// See <a href="https://heroiclabs.com/docs/runtime-code-basics/">Nakama Docs</a> for more info.
 	///
 	/// </summary>
-	public class Example_04_Server_Runtime_Method : MonoBehaviour
+	public class Example04ServerRuntimeMethod : MonoBehaviour
 	{
 		//  Properties ------------------------------------
 		private ExampleButton AddNumbersButton { get { return _examplesUI.ExampleButton03; } }

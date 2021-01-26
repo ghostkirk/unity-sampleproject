@@ -153,7 +153,6 @@ Transform:
   - {fileID: 2053495962}
   - {fileID: 1674532579}
   - {fileID: 84262962}
-  - {fileID: 1789806423}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -184,7 +183,7 @@ GameObject:
   - component: {fileID: 1004031990}
   - component: {fileID: 1004031989}
   m_Layer: 0
-  m_Name: Example_03_Chat
+  m_Name: Example05AuthoritativeMultiplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +198,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004031988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af10836ed81bcb94f949f6ab3dd97851, type: 3}
+  m_Script: {fileID: 11500000, guid: e53826cf05ba18b4cbe31d366887469f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _examplesUI: {fileID: 84262963}
@@ -310,68 +309,6 @@ Transform:
   m_Father: {fileID: 40990525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &1744333817
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 40990525}
-    m_Modifications:
-    - target: {fileID: 184210, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_Name
-      value: UnityMainThreadDispatcher
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
---- !u!4 &1789806423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3531807769376865864, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 3}
-  m_PrefabInstance: {fileID: 1744333817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2053495959
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,11 +533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _titleTextMessage
-      value: Nakama Realtime Chat
+      value: Nakama Authoritative Multiplayer
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton01._textMessage
-      value: Send Chat Message
+      value: Send Match State
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton02._textMessage

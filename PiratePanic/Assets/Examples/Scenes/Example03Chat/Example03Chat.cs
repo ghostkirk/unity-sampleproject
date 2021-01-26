@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace Nakama.Examples.Example_03_Chat
+namespace Nakama.Examples.Example03Chat
 {
 	/// <summary>
 	/// This example showcases realtime chat with Nakama server.
@@ -28,7 +28,7 @@ namespace Nakama.Examples.Example_03_Chat
 	/// See <a href="https://heroiclabs.com/docs/social-realtime-chat/">Nakama Docs</a> for more info.
 	///
 	/// </summary>
-	public class Example_03_Chat : MonoBehaviour
+	public class Example03Chat : MonoBehaviour
 	{
 		//  Events ----------------------------------------
 

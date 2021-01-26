@@ -18,7 +18,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Nakama.Examples.Example_01_AsyncAwait
+namespace Nakama.Examples.Example01AsyncAwait
 {
 	/// <summary>
 	/// This example showcases asynchronous programming with async and await.
@@ -26,7 +26,7 @@ namespace Nakama.Examples.Example_01_AsyncAwait
 	/// See <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Microsoft Docs</a> for more info.
 	///
 	/// </summary>
-	public class Example_01_AsyncAwait : MonoBehaviour
+	public class Example01AsyncAwait : MonoBehaviour
 	{
 		//  Properties ------------------------------------
 		private ExampleButton CallMethod { get { return _examplesUI.ExampleButton03; } }

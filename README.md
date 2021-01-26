@@ -84,11 +84,11 @@ The repo includes several helpful example scenes which showcase the features of 
 
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/Example_Screenshot.png">
 
-* **Async / Await** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example_01_AsyncAwait/">Source</a>) - Asynchronous programming with async and await. (<a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Microsoft Docs</a>)
-* **Authentication** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example_02_Authentication/">Source</a>) - User authentication with Nakama server. (<a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a>)
-* **Chat** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example_03_Chat/">Source</a>) - Realtime chat with Nakama server. (<a href="https://heroiclabs.com/docs/social-realtime-chat/">Nakama Docs</a>)
-* **Server Runtime Method** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example_04_Server_Runtime_Method/">Source</a>) - Fast embedded code runtime with Nakama server. (<a href="https://heroiclabs.com/docs/runtime-code-basics/">Nakama Docs</a>)
-* **Authoritative Multiplayer** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example_05_Authoritative_Multiplayer/">Source</a>) - Realtime multiplayer with Nakama server. (<a href="https://heroiclabs.com/docs/gameplay-multiplayer-server-multiplayer/">Nakama Docs</a>)
+* **Async / Await** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example01AsyncAwait/">Source</a>) - Asynchronous programming with async and await. (<a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/">Microsoft Docs</a>)
+* **Authentication** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example02Authentication/">Source</a>) - User authentication with Nakama server. (<a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a>)
+* **Chat** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example03Chat/">Source</a>) - Realtime chat with Nakama server. (<a href="https://heroiclabs.com/docs/social-realtime-chat/">Nakama Docs</a>)
+* **Server Runtime Method** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example04ServerRuntimeMethod/">Source</a>) - Fast embedded code runtime with Nakama server. (<a href="https://heroiclabs.com/docs/runtime-code-basics/">Nakama Docs</a>)
+* **Authoritative Multiplayer** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example05AuthoritativeMultiplayer/">Source</a>) - Realtime multiplayer with Nakama server. (<a href="https://heroiclabs.com/docs/gameplay-multiplayer-server-multiplayer/">Nakama Docs</a>)
 
 
 #### Pirate Panic Game

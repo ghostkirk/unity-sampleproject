@@ -195,7 +195,9 @@ namespace PiratePanic
 #if UNITY_WEBGL && !UNITY_EDITOR
 				deviceId = System.Guid.NewGuid().ToString();
 #else
-				deviceId = SystemInfo.deviceUniqueIdentifier;
+				deviceId = GameConfigurationManager.Instance.GameConfiguration.RandomDeviceId ?
+                System.Guid.NewGuid().ToString() :
+                SystemInfo.deviceUniqueIdentifier;
 #endif
 			}
 

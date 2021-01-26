@@ -28,6 +28,7 @@ namespace PiratePanic
 		//  Properties ------------------------------------
 		public string SceneNameMainMenu { get { return _sceneNameMainMenu; } }
 		public string SceneNameBattle { get { return _sceneNameBattle; } }
+		public bool RandomDeviceId { get { return _randomDeviceId; } }
 
 		// Gameplay - Local Player
 		public int StartingGold { get { return _startingGold; } }
@@ -41,7 +42,7 @@ namespace PiratePanic
 
 		// Audio
 		public bool IsAudioEnabled { get { return _isAudioEnabled; } }
-		public float AudioVolume { get { return _audioVolume; } } 
+		public float AudioVolume { get { return _audioVolume; } }
 
 		//  Fields ----------------------------------------
 		[Header("Scenes")]
@@ -93,5 +94,10 @@ namespace PiratePanic
 		/// </summary>
 		[SerializeField] private bool _willDeleteAllPlayerPrefsOnInit = false;
 
+		[Tooltip("If true, a random device id will be generated for the user.")]
+		/// <summary>
+		/// If true, a random device id will be generated for the user.
+		/// </summary>
+		[SerializeField] private bool _randomDeviceId = true;
 	}
-} 
+}

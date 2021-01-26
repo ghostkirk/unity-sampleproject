@@ -79,7 +79,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			_DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
 			_ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
 
-			// Create Client
+			//  -------------------------------------------
+			//  NOTE: Create Client
+			//  -------------------------------------------
 			_exampleSessionClient = new ExampleSessionClient();
 			await _exampleSessionClient.Authenticate();
 
@@ -87,8 +89,19 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			_client = _exampleSessionClient.Client;
 			_session = _exampleSessionClient.Session;
 
-			// Create Socket
+			//  -------------------------------------------
+			//  NOTE: Create The Socket
+			//
+			//	useMainThread	
+			//		* If false, callbacks execute faster.
+			//		* If true, callbacks execute safely. 
+			//
+			//	Some built-in Unity systems operate only on 
+			//		the "main thread" of code execution of 
+			//		Unity (e.g. UnityEngine.UI). 
+			//  -------------------------------------------
 			_socket = _client.NewSocket(useMainThread:true);
+
 			_socket.Closed += Socket_OnClosed;
 			_socket.Connected += Socket_OnConnected;
 			_socket.ReceivedError += Socket_OnReceivedError;
@@ -145,14 +158,18 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		{
 			try
 			{
-				// Packing MatchMessage object to json
+				//  -------------------------------------------
+				//  NOTE: Covert the message object to Json
+				//  -------------------------------------------
 				string json = JsonWriter.ToJson(message);
 
-				// Sending match state json along with opCode needed for unpacking message to server.
-				// Then server sends it to other players
+				//  -------------------------------------------
+				//  NOTE: Send object to all players in match
+				//  -------------------------------------------
+				_socket.SendMatchStateAsync(_match.Id, (long)opCode, json, _match.Presences);
+
 				Debug.Log($"SendMatchStateAsync() _matchId = {_match.Id}, (long)opCode = {(long)opCode}, json = {json}");
 
-				_socket.SendMatchStateAsync(_match.Id, (long)opCode, json, _match.Presences);
 			}
 			catch (Exception e)
 			{
@@ -164,6 +181,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		{
 			Debug.Log($"Socket_OnReceivedMatchState() UserId = {matchState.UserPresence.UserId}");
 
+			//  -------------------------------------------
+			//  NOTE: Covert the message object to Json
+			//  -------------------------------------------
 			string messageJson = Encoding.UTF8.GetString(matchState.State);
 
 			// Display text info
@@ -172,11 +192,16 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			stringBuilder.AppendLine($"Socket_OnReceivedMatchState()");
 			stringBuilder.AppendLine($"\tJson = {messageJson}");
 
-			// Choosing which event should be invoked basing on opCode, then
-			// parsing json to MatchMessage class and firing event
+			//  -------------------------------------------
+			//  NOTE: Depending on the OpCode...
+			//  -------------------------------------------
 			switch ((MyMatchStateType)matchState.OpCode)
 			{
 				case MyMatchStateType.MyPlayerMoveMatchStateType:
+
+					//  -------------------------------------------
+					//  NOTE: ...Covert the message Json to C#
+					//  -------------------------------------------
 					MyPlayerMoveMatchState myPlayerMoveMessage = JsonParser.FromJson<MyPlayerMoveMatchState>(messageJson);
 					stringBuilder.AppendLine($"\tParsed C# = {myPlayerMoveMessage}");
 					break;
@@ -192,13 +217,20 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 			// Empty UI
 			RefreshUI();
 
-			// Connect Socket
+			//  -------------------------------------------
+			//  NOTE: Connect Socket
+			//  -------------------------------------------
 			await _socket.ConnectAsync(_session);
 
-			// Create Match
+			//  -------------------------------------------
+			//  NOTE: Create Match
+			//  -------------------------------------------
 			IMatch createMatchAsyncMatch = await _socket.CreateMatchAsync();
 
-			// Join Match without a full matchmaking process
+			//  -------------------------------------------
+			//  NOTE: Join Match without a full matchmaking 
+			//		  process
+			//  -------------------------------------------
 			_match = await _socket.JoinMatchAsync(createMatchAsyncMatch.Id);
 
 			// Populate UI

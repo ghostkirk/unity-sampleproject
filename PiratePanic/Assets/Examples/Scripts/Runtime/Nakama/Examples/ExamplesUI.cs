@@ -23,8 +23,7 @@ namespace Nakama.Examples
 	/// User interface used in all examples. Encapsulates <see cref="Button"/>s and
 	/// <see cref="Text"/>s for consistency in layout and C# API.
 	/// 
-	/// NOTE: Some subclasses will directly use all 3 
-	/// <see cref="ExampleButton"/>s, some use less.
+	/// Some subclasses will directly use all 3 <see cref="ExampleButton"/>s, some use less.
 	/// 
 	/// </summary>
 	[ExecuteInEditMode]

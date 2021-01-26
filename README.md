@@ -97,8 +97,8 @@ The repo includes these scenes for the sample game project.
 
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/MainMenu_Screenshot.png">
 
-* **Scene01MainMenu** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/">Source</a>) - This is the main entry point for the game. **Play this scene first**.
-* **Scene02Battle** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/">Source</a>) - The core game loop.
+* **Scene01MainMenu** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/Scene01MainMenuController.cs">Source</a>) - This is the main entry point for the game. **Play this scene first**.
+* **Scene02Battle** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/Scene02BattleController.cs">Source</a>) - The core game loop.
 
 ## Constants & Configuration
 

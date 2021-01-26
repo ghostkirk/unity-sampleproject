@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7957aa85c292c1a43808e3f0f99e9ad0, type: 3}
-  m_Name: 
+  m_Name: GameConfiguration
   m_EditorClassIdentifier: 
   _sceneNameMainMenu: Scene01MainMenu
   _sceneNameBattle: Scene02Battle

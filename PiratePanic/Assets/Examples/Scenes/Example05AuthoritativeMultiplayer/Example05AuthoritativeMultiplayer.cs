@@ -57,7 +57,7 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 	public class Example05AuthoritativeMultiplayer : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton SendMatchState { get { return _examplesUI.ExampleButton01; } }
+		private ExampleButton SendMatchStateButton { get { return _examplesUI.ExampleButton01; } }
 		private ExampleButton DisconnectButton { get { return _examplesUI.ExampleButton02; } }
 		private ExampleButton ConnectButton { get { return _examplesUI.ExampleButton03; } }
 
@@ -75,7 +75,7 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		//  Unity Methods   -------------------------------
 		protected async void Start()
 		{
-			SendMatchState.Button.onClick.AddListener(SendMatchState_OnClicked);
+			SendMatchStateButton.Button.onClick.AddListener(SendMatchStateButton_OnClicked);
 			DisconnectButton.Button.onClick.AddListener(DisconnectButton_OnClicked);
 			ConnectButton.Button.onClick.AddListener(ConnectButton_OnClicked);
 
@@ -105,7 +105,7 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		{
 			// Refresh button interactivity
 			bool isConnected = _socket.IsConnected;
-			SendMatchState.Button.interactable = isConnected;
+			SendMatchStateButton.Button.interactable = isConnected;
 			DisconnectButton.Button.interactable = isConnected;
 			ConnectButton.Button.interactable = !isConnected;
 
@@ -203,9 +203,9 @@ namespace Nakama.Examples.Example05AuthoritativeMultiplayer
 		}
 
 
-		private void SendMatchState_OnClicked()
+		private void SendMatchStateButton_OnClicked()
 		{
-			Debug.Log($"SendMoveButton_OnClicked");
+			SetBodyText($"SendMoveButton_OnClicked()");
 
 			// Assume the user moves to a new world position of Vector (1,2,3)
 			SendMatchStateMessage(MyMatchStateType.MyPlayerMoveMatchStateType,

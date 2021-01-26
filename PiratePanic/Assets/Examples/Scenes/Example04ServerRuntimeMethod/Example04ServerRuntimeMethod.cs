@@ -105,6 +105,8 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 		//  Event Handlers --------------------------------
 		private async void AddNumbersButton_OnClicked()
 		{
+			SetBodyText("");
+
 			IClient client = _exampleSessionClient.Client;
 			ISession session = _exampleSessionClient.Session;
 

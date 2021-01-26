@@ -109,6 +109,7 @@ namespace Nakama.Examples.Example03Chat
 			Debug.Log(message);
 		}
 
+
 		//  Event Handlers --------------------------------
 		private async void ConnectButton_OnClicked()
 		{
@@ -129,7 +130,7 @@ namespace Nakama.Examples.Example03Chat
 
 		private async void SendChatMessageButton_OnClicked()
 		{
-			Debug.Log($"SendChatMessageButton_OnClicked");
+			SetBodyText($"SendChatMessageButton_OnClicked()");
 
 			var chatMessageJson = new Dictionary<string, string> { { "hello", "world" } }.ToJson();
 			await _socket.WriteChatMessageAsync(_channel.Id, chatMessageJson);

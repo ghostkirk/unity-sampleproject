@@ -29,7 +29,7 @@ namespace Nakama.Examples.Example01AsyncAwait
 	public class Example01AsyncAwait : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		private ExampleButton CallMethod { get { return _examplesUI.ExampleButton03; } }
+		private ExampleButton CallAsyncMethodButton { get { return _examplesUI.ExampleButton03; } }
 
 		//  Fields ----------------------------------------
 		[SerializeField] private ExamplesUI _examplesUI = null;
@@ -37,9 +37,9 @@ namespace Nakama.Examples.Example01AsyncAwait
 		//  Unity Methods   -------------------------------
 		protected void Start()
 		{
-			CallMethod.Button.interactable = true;
-			CallMethod.Button.onClick.AddListener(CallMethod_OnClicked);
-			CallMethod_OnClicked();
+			CallAsyncMethodButton.Button.interactable = true;
+			CallAsyncMethodButton.Button.onClick.AddListener(CallAsyncMethodButton_OnClicked);
+			CallAsyncMethodButton_OnClicked();
 		}
 
 		//  Other Methods ---------------------------------
@@ -66,7 +66,7 @@ namespace Nakama.Examples.Example01AsyncAwait
 				// "await" is used. So the call is ASYNCHRONOUS. 
 				int delayInMilliseconds = await Method02();
 
-				AddToBodyText($"Method01() Ends. DelayInMilliseconds = {delayInMilliseconds}");
+				AddToBodyText($"Method01() Ends.");
 
 			}
 			catch (Exception e)
@@ -81,23 +81,23 @@ namespace Nakama.Examples.Example01AsyncAwait
 		/// <returns></returns>
 		private async Task<int> Method02()
 		{
-			CallMethod.Button.interactable = false;
+			CallAsyncMethodButton.Button.interactable = false;
 
-			AddToBodyText("\tMethod02() Begin...");
+			AddToBodyText("\tMethod02() Begins ...");
 
 			int delayInMilliseconds = 1000;
 
 			await Task.Delay(delayInMilliseconds);
 
-			AddToBodyText("\tMethod02() End.");
+			AddToBodyText($"\tMethod02() Ends. DelayInMilliseconds = {delayInMilliseconds}");
 
-			CallMethod.Button.interactable = true;
+			CallAsyncMethodButton.Button.interactable = true;
 
 			return delayInMilliseconds;
 		}
 
 		//  Event Handlers --------------------------------
-		private void CallMethod_OnClicked()
+		private void CallAsyncMethodButton_OnClicked()
 		{
 			ClearBodyText();
 

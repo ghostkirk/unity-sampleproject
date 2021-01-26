@@ -63,7 +63,7 @@ namespace Nakama.Examples.Example01AsyncAwait
 			try
 			{
 				// Call the method.
-				// "await" is used. So the call is ASYNCHRONOUS. 
+				// "await" is used. So the local scope is SUSPENDED while waiting. 
 				int delayInMilliseconds = await Method02();
 
 				AddToBodyText($"Method01() Ends.");
@@ -102,7 +102,7 @@ namespace Nakama.Examples.Example01AsyncAwait
 			ClearBodyText();
 
 			// Call the method.
-			// "await" is NOT used. So the call is SYNCHRONOUS. 
+			// "await" is NOT used. So the local scope is not SUSPENDED.
 			// This is the default Unity behaviour.
 			Method01();
 		}

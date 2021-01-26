@@ -56,19 +56,19 @@ namespace PiratePanic
 				List<Node> impactedNodes = new List<Node>();
 				for (int x = node.Position.x - Range; x <= node.Position.x + Range; x++)
 				{
-					if (x < 0 || x >= Scene02_BattleController.Instance.MapSize.x || (x % 2 == 1 && x >= Scene02_BattleController.Instance.MapSize.x - 1))
+					if (x < 0 || x >= Scene02BattleController.Instance.MapSize.x || (x % 2 == 1 && x >= Scene02BattleController.Instance.MapSize.x - 1))
 					{
 						continue;
 					}
 					for (int y = node.Position.y - Range; y <= node.Position.y + Range; y++)
 					{
-						if (y < 0 || y >= Scene02_BattleController.Instance.MapSize.y)
+						if (y < 0 || y >= Scene02BattleController.Instance.MapSize.y)
 						{
 							continue;
 						}
-						if (Scene02_BattleController.Instance.Nodes[x, y])
+						if (Scene02BattleController.Instance.Nodes[x, y])
 						{
-							impactedNodes.Add(Scene02_BattleController.Instance.Nodes[x, y]);
+							impactedNodes.Add(Scene02BattleController.Instance.Nodes[x, y]);
 						}
 					}
 				}

@@ -60,8 +60,8 @@ namespace PiratePanic
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, mask))
 			{
-				Vector2Int nodePosition = Scene02_BattleController.Instance.ScreenToNodePos(hit.point, _isHost, dropRegion);
-				Node node = Scene02_BattleController.Instance.Nodes[nodePosition.x, nodePosition.y];
+				Vector2Int nodePosition = Scene02BattleController.Instance.ScreenToNodePos(hit.point, _isHost, dropRegion);
+				Node node = Scene02BattleController.Instance.Nodes[nodePosition.x, nodePosition.y];
 				transform.position = node.transform.position;
 			}
 		}

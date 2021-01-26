@@ -205,7 +205,7 @@ namespace PiratePanic
 			}
 
 			CardType cardType = message.Card.GetCardInfo().CardType;
-			Node node = Scene02_BattleController.Instance.Nodes[message.NodeX, message.NodeY];
+			Node node = Scene02BattleController.Instance.Nodes[message.NodeX, message.NodeY];
 			PlayerColor player = message.OwnerId == _connection.Session.UserId ? PlayerColor.Black : PlayerColor.Red;
 			int id = message.UnitId;
 
@@ -262,7 +262,7 @@ namespace PiratePanic
 			}
 
 			Unit unit = _units[color][message.UnitId];
-			Node node = Scene02_BattleController.Instance.Nodes[message.NodeX, message.NodeY];
+			Node node = Scene02BattleController.Instance.Nodes[message.NodeX, message.NodeY];
 
 			unit.Move(node);
 		}

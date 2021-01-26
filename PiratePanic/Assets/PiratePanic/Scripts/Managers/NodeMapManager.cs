@@ -75,7 +75,7 @@ namespace PiratePanic
 					}
 				}
 			}
-			Scene02_BattleController.Instance.InitMap(Nodes, Size);
+			Scene02BattleController.Instance.InitMap(Nodes, Size);
 		}
 
 		/// <summary>

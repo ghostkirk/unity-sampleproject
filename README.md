@@ -71,7 +71,7 @@ The Unity Pirate Pananic game client wraps the flexible Nakama SDK concepts into
 
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/Diagram_3_Pirate_Panic_Class.png">
 
-* **Scene01_MainMenuController** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/Scene01_MainMenu/Scene01_MainMenuController.cs">Source</a>) - Handles creation of Client, Socket, Account, and Session for interaction with the Nakama server.
+* **Scene01MainMenuController** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/Scene01MainMenuController.cs">Source</a>) - Handles creation of Client, Socket, Account, and Session for interaction with the Nakama server.
 * **GameConnection** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/GameConnection.cs">Source</a>) - Stores references to Client, Socket, Account, and Session for interaction with the Nakama server.
 * **GameStateManager** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scripts/GameStateManager.cs">Source</a>) - Manages client-server communication, including MatchState, with the Nakama server.
 
@@ -97,8 +97,8 @@ The repo includes these scenes for the sample game project.
 
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/MainMenu_Screenshot.png">
 
-* **Scene01_MainMenu** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/Scene01_MainMenu/">Source</a>) - This is the main entry point for the game. **Play this scene first**.
-* **Scene02_Battle** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/Scene02_Battle/">Source</a>) - The core game loop.
+* **Scene01MainMenu** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/">Source</a>) - This is the main entry point for the game. **Play this scene first**.
+* **Scene02Battle** (<a target="_blank" href="./PiratePanic/Assets/PiratePanic/Scenes/">Source</a>) - The core game loop.
 
 ## Constants & Configuration
 
@@ -150,7 +150,7 @@ The Unity Editor is required. Download it from <a href="https://unity3d.com/get-
 
 **Unity Editor Play Session**
 1. Open the project in the Unity Editor
-1. Open the scene of `./PiratePanic/Assets/PiratePanic/Scenes/Scene01_MainMenu/Scene01_MainMenu.unity`
+1. Open the scene of `./PiratePanic/Assets/PiratePanic/Scenes/Scene01MainMenu.unity`
 1. Run Unity Editor for Pirate Panic
 1. Enter "localhost" for the Server IP within the in-game UI
 1. Click "Battle"

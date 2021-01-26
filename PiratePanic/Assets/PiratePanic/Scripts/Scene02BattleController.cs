@@ -27,7 +27,7 @@ namespace PiratePanic
     /// <summary>
     /// Core gameplay manager. Handles card playing, game ending and initialization.
     /// </summary>
-    public class Scene02_BattleController : Singleton<Scene02_BattleController>
+    public class Scene02BattleController : Singleton<Scene02BattleController>
     {
         /// <summary>
         /// Reference to camera parent object.

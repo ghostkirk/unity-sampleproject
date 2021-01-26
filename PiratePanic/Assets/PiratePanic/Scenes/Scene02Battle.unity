@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 435377573}
   - component: {fileID: 435377572}
   m_Layer: 0
-  m_Name: Scene02_BattleController
+  m_Name: Scene02BattleController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

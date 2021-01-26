@@ -25,7 +25,7 @@ namespace PiratePanic
     /// <summary>
     /// Adds all panels to the scene and handles navigation in menu.
     /// </summary>
-    public class Scene01_MainMenuController : MonoBehaviour
+    public class Scene01MainMenuController : MonoBehaviour
     {
         [SerializeField] BattleMenuUI _battleMenuUI;
         [SerializeField] ClansMenuUI _clansMenuUI;

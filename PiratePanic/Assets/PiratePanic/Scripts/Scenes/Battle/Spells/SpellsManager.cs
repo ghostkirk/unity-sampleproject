@@ -56,7 +56,7 @@ namespace PiratePanic
 		{
 			if (message.Card.CardData.type == CardType.Fireball)
 			{
-				GetNonactiveSpellOfType(SpellType.Fireball).Activate(Scene02_BattleController.Instance.Nodes[message.NodeX, message.NodeY], message.PlayerId);
+				GetNonactiveSpellOfType(SpellType.Fireball).Activate(Scene02BattleController.Instance.Nodes[message.NodeX, message.NodeY], message.PlayerId);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace PiratePanic
 
 			spell.OnHide += HideSpell;
 
-			spell.Show(Scene02_BattleController.Instance.Nodes[message.NodeX, message.NodeY]);
+			spell.Show(Scene02BattleController.Instance.Nodes[message.NodeX, message.NodeY]);
 
 			List<Unit> impactedUnits = new List<Unit>();
 

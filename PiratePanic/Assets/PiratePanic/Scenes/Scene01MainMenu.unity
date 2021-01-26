@@ -2807,7 +2807,7 @@ GameObject:
   - component: {fileID: 1518387842}
   - component: {fileID: 1518387841}
   m_Layer: 0
-  m_Name: Scene01_MainMenuController
+  m_Name: Scene01MainMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

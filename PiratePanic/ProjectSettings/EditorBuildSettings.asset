@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PiratePanic/Scenes/Scene01_MainMenu/Scene01_MainMenu.unity
+    path: Assets/PiratePanic/Scenes/Scene01MainMenu.unity
     guid: ffc8e1483ded3b442b90a1deeaff1222
   - enabled: 1
-    path: Assets/PiratePanic/Scenes/Scene02_Battle/Scene02_Battle.unity
+    path: Assets/PiratePanic/Scenes/Scene02Battle.unity
     guid: 5da27a209466d3147ad834283dbcf520
   m_configObjects: {}

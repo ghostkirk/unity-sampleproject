@@ -45,8 +45,8 @@ namespace PiratePanic
 
 		//  Fields ----------------------------------------
 		[Header("Scenes")]
-		[SerializeField] private string _sceneNameMainMenu = "Scene01_MainMenu";
-		[SerializeField] private string _sceneNameBattle = "Scene02_Battle";
+		[SerializeField] private string _sceneNameMainMenu = "Scene01MainMenu";
+		[SerializeField] private string _sceneNameBattle = "Scene02Battle";
 
 		[Header("Gameplay - Local Player")]
 		/// <summary>

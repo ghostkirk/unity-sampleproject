@@ -24,10 +24,14 @@ namespace Nakama.Templates
 	public class TemplateMonoBehavior : MonoBehaviour
 	{
 		//  Properties ------------------------------------
-		public GameObject SampleGameObject { get { return _sampleGameObject; } }
+		public GameObject SampleGameObject { get { return _sampleGameObject; } set { _sampleGameObject = value; } }
+		private int _SampleValue { get { return _sampleValue; } }
 
 		//  Fields ----------------------------------------
+		public const int DaysPerYear = 365;
+		private const int _MonthsPerYear = 12;
 
+		private int _sampleValue = 10;
 		[SerializeField] private GameObject _sampleGameObject = null;
 
 		//  Unity Methods   -------------------------------
@@ -42,13 +46,13 @@ namespace Nakama.Templates
 		}
 
 		//  Other Methods ---------------------------------
-		private void SampleMethod ()
+		private void SampleMethod()
 		{
 
 		}
 
 		//  Event Handlers --------------------------------
-		private void OtherClass_OnEventHappenened()
+		private void OtherClass_OnCompleted()
 		{
 
 		}

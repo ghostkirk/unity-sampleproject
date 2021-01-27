@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using PiratePanic.Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -105,9 +106,16 @@ namespace PiratePanic
 			}
 			else
 			{
+				PlayAudioShipShoot();
+
 				CustomAnimator animatorToPlay = _attackAnimators.OrderBy(aa => Vector3.Distance(aa.transform.position, targetPosition)).ToList()[0];
 				animatorToPlay.Play();
 			}
+		}
+
+		protected void PlayAudioShipShoot()
+		{
+			SoundManager.Instance.PlayAudioClip(SoundConstants.ShipShoot01);
 		}
 
 		private void StartMoveAnimation(Vector3 startPosition, Vector3 targetPosition)

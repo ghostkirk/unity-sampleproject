@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-using PiratePanic.Managers;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -121,7 +121,7 @@ namespace PiratePanic
 					_shootingIndex = 0;
 				}
 
-				SoundManager.Instance.PlayAudioClip(SoundConstants.ShipShoot01);
+				PlayAudioShipShoot();
 
 				CustomAnimator animatorToPlay = _attackAnimators[_shootingIndex];
 				animatorToPlay.Play();

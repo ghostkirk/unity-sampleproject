@@ -479,7 +479,7 @@ namespace PiratePanic
             if (GameConfigurationManager.Instance.GameConfiguration.IsVerboseLogging)
             {
                 string winnerLog = allyDestroyed ? "Enemy" : "Ally";
-                Debug.Log($"OnCastleDestroyed() {winner} wins");
+                Debug.Log($"OnAfterMainFortDestroyed() {winner} wins");
             }
 
             string matchId = _connection.BattleConnection.MatchId;
@@ -497,7 +497,10 @@ namespace PiratePanic
 
             IApiRpc response;
 
-            Debug.Log("making match end request");
+            if (GameConfigurationManager.Instance.GameConfiguration.IsVerboseLogging)
+            {
+                Debug.Log($"OnAfterMainFortDestroyed() calling 'handle_match_end'.");
+            }
 
             try
             {

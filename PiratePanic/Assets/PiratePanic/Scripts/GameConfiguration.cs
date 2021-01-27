@@ -36,9 +36,9 @@ namespace PiratePanic
 
 		// Debug
 		public bool IsDebug { get { return _isDebug; } }
-		public bool WillDeleteAllPlayerPrefsOnInit { get { return IsDebug && _willDeleteAllPlayerPrefsOnInit; } }
+		public bool IsDeviceIdRandomized { get { return IsDebug && _isDeviceIdRandomized; } }
+		public bool IsPlayerPrefsDeletedOnStart { get { return IsDebug && _isPlayerPrefsDeletedOnStart; } }
 		public bool IsVerboseLogging { get { return IsDebug &&_isVerboseLogging; } }
-		public bool RandomDeviceId { get { return _randomDeviceId; } }
 
 		// Audio
 		public bool IsAudioEnabled { get { return _isAudioEnabled; } }
@@ -80,7 +80,13 @@ namespace PiratePanic
 		/// <summary>
 		/// If false, values below are ignored.
 		/// </summary>
-		[SerializeField] private bool _isDebug = false;
+		[SerializeField] private bool _isDebug = true;
+
+		[Tooltip("If true, a random device id will be generated for the user.")]
+		/// <summary>
+		/// If true, a random device id will be generated for the user.
+		/// </summary>
+		[SerializeField] private bool _isDeviceIdRandomized = true;
 
 		[Tooltip("If true, executes more Debug.Log.")]
 		/// <summary>
@@ -92,12 +98,6 @@ namespace PiratePanic
 		/// <summary>
 		/// If true, stored session authentication token and device id will be erased on start
 		/// </summary>
-		[SerializeField] private bool _willDeleteAllPlayerPrefsOnInit = false;
-
-		[Tooltip("If true, a random device id will be generated for the user.")]
-		/// <summary>
-		/// If true, a random device id will be generated for the user.
-		/// </summary>
-		[SerializeField] private bool _randomDeviceId = true;
+		[SerializeField] private bool _isPlayerPrefsDeletedOnStart = false;
 	}
 }

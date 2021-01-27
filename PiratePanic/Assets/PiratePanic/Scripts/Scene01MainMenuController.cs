@@ -66,7 +66,7 @@ namespace PiratePanic
         private async void InitializeGame()
         {
             // Init PlayerPrefs
-            bool willDeleteAllPlayerPrefsOnInit = GameConfigurationManager.Instance.GameConfiguration.WillDeleteAllPlayerPrefsOnInit;
+            bool willDeleteAllPlayerPrefsOnInit = GameConfigurationManager.Instance.GameConfiguration.IsPlayerPrefsDeletedOnStart;
 
             if (willDeleteAllPlayerPrefsOnInit)
             {
@@ -195,7 +195,7 @@ namespace PiratePanic
 #if UNITY_WEBGL && !UNITY_EDITOR
 				deviceId = System.Guid.NewGuid().ToString();
 #else
-				deviceId = GameConfigurationManager.Instance.GameConfiguration.RandomDeviceId ?
+				deviceId = GameConfigurationManager.Instance.GameConfiguration.IsDeviceIdRandomized ?
                 System.Guid.NewGuid().ToString() :
                 SystemInfo.deviceUniqueIdentifier;
 #endif

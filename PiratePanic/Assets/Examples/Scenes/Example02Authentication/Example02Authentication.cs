@@ -105,7 +105,7 @@ namespace Nakama.Examples.Example02Authentication
 			//  -------------------------------------------
 			//  NOTE: Authenticate Session, if needed
 			//  -------------------------------------------
-			if (true || _session == null || _session.HasExpired(currentDateTime))
+			if (_session == null || _session.HasExpired(currentDateTime))
 			{
 				_session = await _client.AuthenticateDeviceAsync(deviceId);
 				PlayerPrefs.SetString(_DeviceIdKey, deviceId);

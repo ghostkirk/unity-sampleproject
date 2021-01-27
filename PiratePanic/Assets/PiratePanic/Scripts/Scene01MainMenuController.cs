@@ -67,12 +67,14 @@ namespace PiratePanic
         {
             // Init PlayerPrefs
             bool willDeleteAllPlayerPrefsOnInit = GameConfigurationManager.Instance.GameConfiguration.IsPlayerPrefsDeletedOnStart;
+            bool isDebug = GameConfigurationManager.Instance.GameConfiguration.IsDebug;
 
             if (willDeleteAllPlayerPrefsOnInit)
             {
                 PlayerPrefs.DeleteAll();
-                Debug.LogWarning($"InitializeGame() willDeleteAllPlayerPrefsOnInit={willDeleteAllPlayerPrefsOnInit}");
-			}
+                Debug.LogWarning($"InitializeGame() isDebug={isDebug}, willDeleteAllPlayerPrefsOnInit={willDeleteAllPlayerPrefsOnInit}");
+
+            }
 
             string deviceId = GetDeviceId();
 
@@ -87,10 +89,13 @@ namespace PiratePanic
 
                 try
                 {
+#if !UNITY_EDITOR
+//FB works in build and is ignored in editor
                     FB.Init(() =>
                     {
                         FB.ActivateApp();
                     });
+#endif
                 }
                 catch
                 {
@@ -190,16 +195,24 @@ namespace PiratePanic
 
 			if (string.IsNullOrWhiteSpace(deviceId))
 			{
-					// SystemInfo.deviceUniqueIdentifier is not supported in WebGL,
-					// we generate a random one instead via System.Guid
+                // SystemInfo.deviceUniqueIdentifier is not supported in WebGL,
+                // we generate a random one instead via System.Guid
 #if UNITY_WEBGL && !UNITY_EDITOR
 				deviceId = System.Guid.NewGuid().ToString();
 #else
-				deviceId = GameConfigurationManager.Instance.GameConfiguration.IsDeviceIdRandomized ?
+                bool isDeviceIdRandomized = GameConfigurationManager.Instance.GameConfiguration.IsDeviceIdRandomized;
+                bool isDebug = GameConfigurationManager.Instance.GameConfiguration.IsDebug;
+
+                deviceId = isDeviceIdRandomized ?
                 System.Guid.NewGuid().ToString() :
                 SystemInfo.deviceUniqueIdentifier;
+
+                if (isDeviceIdRandomized)
+                {
+                    Debug.LogWarning($"GetDeviceId() isDebug={isDebug}, isDeviceIdRandomized={isDeviceIdRandomized}");
+                }
 #endif
-			}
+            }
 
             return deviceId;
         }

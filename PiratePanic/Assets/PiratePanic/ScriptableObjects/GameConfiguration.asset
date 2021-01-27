@@ -16,10 +16,10 @@ MonoBehaviour:
   _sceneNameBattle: Scene02Battle
   _startingGold: 3
   _maxGoldCount: 10
-  _goldPerSecond: 2
+  _goldPerSecond: 0.5
   _isAudioEnabled: 1
-  _audioVolume: 0.978
+  _audioVolume: 1
   _isDebug: 1
   _isDeviceIdRandomized: 1
   _isVerboseLogging: 0
-  _isPlayerPrefsDeletedOnStart: 0
+  _isPlayerPrefsDeletedOnStart: 1

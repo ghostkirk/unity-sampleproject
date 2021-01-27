@@ -62,6 +62,26 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 	/// This example showcases the fast embedded code runtime with Nakama server.
 	/// 
 	/// See <a href="https://heroiclabs.com/docs/runtime-code-basics/">Nakama Docs</a> for more info.
+	/// 
+	///  --------------------------------------------------------------------------------------
+	///  NOTE: Files Related To This Demo...
+	///		* List of TypeScript Files	: "./ServerModules/tsconfig.ts"
+	///		* Registration of Methods	: "./ServerModules/src/main.ts"
+	///		* Implementation of Methods	: "./ServerModules/src/Example04ServerRuntimeMethod.ts"
+	///  --------------------------------------------------------------------------------------
+	///  
+	///  ------------------------------------------------------------------
+	///  NOTE: To Add/Edit The TypeScript Sourcecode...
+	///		* 1. Setup NPM per "./Readme.md"
+	///		* 2. Edit "./ServerModules/src/Example04ServerRuntimeMethod.ts"
+	///		* 3. Open command line to "./ServerModules/"
+	///		* 4. Run command line "npm install"
+	///		* 5. Run command line "npx tsc"
+	///		* 6. Command line shows errors? Repeat steps 2 & 5
+	///		* 7. Stop Nakama server
+	///		* 8. Start Nakama server
+	///		* 9. Rerun this example scene
+	///  ------------------------------------------------------------------
 	///
 	/// </summary>
 	public class Example04ServerRuntimeMethod : MonoBehaviour
@@ -121,7 +141,10 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 			stringBuilder.AppendLine($"\tParsed C# = {addNumbersRequest}");
 			SetBodyText(stringBuilder.ToString());
 
-			// Send the request
+			//  --------------------------------------------------------------
+			//  NOTE: Call From C# to TypeScript Method
+			//		  At "./ServerModules/src/Example04ServerRuntimeMethod.ts"
+			//  --------------------------------------------------------------
 			var rpc = await client.RpcAsync(session, "AddNumbers", requestString);
 
 			// Handle the response

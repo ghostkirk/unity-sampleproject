@@ -31,7 +31,7 @@ namespace Nakama.Examples.Example02Authentication
 	///		* Set "token_expiry_sec" to new value
 	///		* Stop Nakama server
 	///		* Start Nakama server
-	///		* Rerun this example Scene
+	///		* Rerun this example scene
 	///  -------------------------------------------
 	/// 
 	/// </summary>

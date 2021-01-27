@@ -295,8 +295,9 @@ var InitModule = function (ctx, logger, nk, initializer) {
     initializer.registerRpc('load_user_cards', rpcLoadUserCards);
     initializer.registerRpc('add_random_card', rpcBuyRandomCard);
     initializer.registerRpc('handle_match_end', rpcHandleMatchEnd);
+    logger.warn('Pirate Panic TypeScript loaded.');
     initializer.registerRpc('AddNumbers', AddNumbers);
-    logger.warn('Pirate Panic loaded.');
+    logger.warn('Examples TypeScript loaded.');
 };
 var afterAuthenticateDeviceFn = function (ctx, logger, nk, data, req) {
     afterAuthenticate(ctx, logger, nk, data);

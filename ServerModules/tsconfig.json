@@ -1,5 +1,7 @@
 {
   "files": [
+
+    // Pirate Panic
     "./src/clans.ts",
     "./src/deck.ts",
     "./src/economy.ts",
@@ -7,8 +9,12 @@
     "./src/quests.ts",
     "./src/match.ts",
 
-    // Examples
-    "./src/example_03.ts"
+    //  -------------------------------------------
+    //  NOTE: For Example Scene(s)
+    //        Register each TypeScript class to
+    //        parsed and compiled
+    //  -------------------------------------------
+    "./src/Example04ServerRuntimeMethod.ts"
   ],
   "compilerOptions": {
     "target": "es5",

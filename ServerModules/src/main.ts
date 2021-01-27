@@ -49,7 +49,7 @@ const InitModule: nkruntime.InitModule =
     initializer.registerAfterAddFriends(afterAddFriendsFn);
     initializer.registerBeforeDeleteGroup(beforeDeleteGroupFn);
 
-    // Set up RPCs.
+    // Set up RPCs: For Pirate Panic
     initializer.registerRpc('search_username', rpcSearchUsernameFn);
     initializer.registerRpc('swap_deck_card', rpcSwapDeckCard);
     initializer.registerRpc('upgrade_card', rpcUpgradeCard);
@@ -58,11 +58,15 @@ const InitModule: nkruntime.InitModule =
     initializer.registerRpc('load_user_cards', rpcLoadUserCards);
     initializer.registerRpc('add_random_card', rpcBuyRandomCard);
     initializer.registerRpc('handle_match_end', rpcHandleMatchEnd);
+    logger.warn('Pirate Panic TypeScript loaded.');
 
-    // Examples
+    //  -------------------------------------------
+    //  NOTE: Set up RPCs: For Example Scene(s)
+    //        Register each TypeScript method to
+    //        be callable from C#
+    //  -------------------------------------------
     initializer.registerRpc('AddNumbers', AddNumbers);
-
-    logger.warn('Pirate Panic loaded.');
+    logger.warn('Examples TypeScript loaded.');
 }
 
 const afterAuthenticateDeviceFn: nkruntime.AfterHookFunction<nkruntime.Session, nkruntime.AuthenticateDeviceRequest> =

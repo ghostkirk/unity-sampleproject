@@ -536,6 +536,10 @@ PrefabInstance:
       value: Nakama Authentication
       objectReference: {fileID: 0}
     - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
+      propertyPath: _exampleButton01._textMessage
+      value: End Session
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587579163984248929, guid: 89674f757c8402f4c92e41589247320b, type: 3}
       propertyPath: _exampleButton02._textMessage
       value: Reauthenticate
       objectReference: {fileID: 0}

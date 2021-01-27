@@ -24,11 +24,21 @@ namespace Nakama.Examples.Example02Authentication
 	/// This example showcases user authentication with Nakama server.
 	///
 	/// See <a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a> for more info.
-	///
+	/// 
+	///  -------------------------------------------
+	///  NOTE: To Change The Session Expiration...
+	///		* Open "./ServerModules/local.yml" 
+	///		* Set "token_expiry_sec" to new value
+	///		* Stop Nakama server
+	///		* Start Nakama server
+	///		* Rerun this example Scene
+	///  -------------------------------------------
+	/// 
 	/// </summary>
 	public class Example02Authentication : MonoBehaviour
 	{
 		//  Properties ------------------------------------
+		private ExampleButton _EndSessionButton { get { return _examplesUI.ExampleButton01; } }
 		private ExampleButton _ReauthenticateButton { get { return _examplesUI.ExampleButton02; } }
 		private ExampleButton _AuthenticateButton { get { return _examplesUI.ExampleButton03; } }
 
@@ -45,6 +55,7 @@ namespace Nakama.Examples.Example02Authentication
 		//  Unity Methods   -------------------------------
 		protected void Start()
 		{
+			_EndSessionButton.Button.onClick.AddListener(EndSessionButton_OnClicked);
 			_ReauthenticateButton.Button.onClick.AddListener(ReauthenticateButton_OnClicked);
 			_AuthenticateButton.Button.onClick.AddListener(AuthenticateButton_OnClicked);
 			RefreshUI();
@@ -64,19 +75,11 @@ namespace Nakama.Examples.Example02Authentication
 		{
 			// Refresh button interactivity
 			bool isSessionActive = _session != null && !_session.IsExpired;
+
+			_EndSessionButton.Button.interactable = isSessionActive;
 			_ReauthenticateButton.Button.interactable = isSessionActive;
 			_AuthenticateButton.Button.interactable = !isSessionActive;
 		}
-
-
-		/// <summary>
-		/// Returns a fake time to encourage expiration for the sake of the demo.
-		/// </summary>
-		private DateTime GetMockCurrentDateTime()
-		{
-			return DateTime.UtcNow.AddYears(1);
-		}
-
 
 		//  Event Handlers --------------------------------
 		private async void AuthenticateButton_OnClicked()
@@ -84,17 +87,25 @@ namespace Nakama.Examples.Example02Authentication
 			_AuthenticateButton.Button.interactable = false;
 
 			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.AppendLine($"Time = {DateTime.Now.ToLocalTime()}");
 
-			// Create client
+			//  -------------------------------------------
+			//  NOTE: Create Client
+			//  -------------------------------------------
 			_client = new Client("http", "127.0.0.1", 7350, "defaultkey");
 
-			// Restore session from PlayerPrefs if possible.
+			//  -------------------------------------------
+			//  NOTE: Restore Session, if exists
+			//  -------------------------------------------
 			var deviceId = SystemInfo.deviceUniqueIdentifier;
 			var sessionToken = PlayerPrefs.GetString(_AuthTokenKey);
-			var currentDateTime = GetMockCurrentDateTime();
+			var currentDateTime = DateTime.UtcNow;
 			_session = Session.Restore(sessionToken);
 
-			if (_session == null || _session.HasExpired(currentDateTime))
+			//  -------------------------------------------
+			//  NOTE: Authenticate Session, if needed
+			//  -------------------------------------------
+			if (true || _session == null || _session.HasExpired(currentDateTime))
 			{
 				_session = await _client.AuthenticateDeviceAsync(deviceId);
 				PlayerPrefs.SetString(_DeviceIdKey, deviceId);
@@ -124,23 +135,44 @@ namespace Nakama.Examples.Example02Authentication
 
 		private void ReauthenticateButton_OnClicked()
 		{
-			var epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-			var expirationDateTime = epochDateTime.AddSeconds(_session.ExpireTime).ToLocalTime();
-			var currentDateTime = GetMockCurrentDateTime();
+			var currentDateTime = DateTime.UtcNow;
 
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.AppendLine($"Time = {DateTime.Now.ToLocalTime()}");
 
+			//  -------------------------------------------
+			//  NOTE: Reauthenticate Session, if needed
+			//  -------------------------------------------
 			if (_session == null || _session.HasExpired(currentDateTime))
-			{
-				stringBuilder.AppendLine($"Reauthentication is NOT needed until {expirationDateTime}.");
-			}
-			else
 			{
 				stringBuilder.AppendLine("Reauthentication is needed.");
 				AuthenticateButton_OnClicked();
 			}
+			else
+			{
+				var epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+				var expirationDateTime = epochDateTime.AddSeconds(_session.ExpireTime).ToLocalTime();
+				stringBuilder.AppendLine($"Reauthentication is NOT needed until {expirationDateTime}.");
+			}
 
+			SetBodyText(stringBuilder.ToString());
+
+			RefreshUI();
+		}
+
+
+		private void EndSessionButton_OnClicked()
+		{
+			// Clear Session from RAM, if exists
+			_session = null;
+
+			// Clear Session from PlayerPrefs, if exists
+			PlayerPrefs.DeleteKey(_DeviceIdKey);
+			PlayerPrefs.DeleteKey(_AuthTokenKey);
+
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.AppendLine($"Time = {DateTime.Now.ToLocalTime()}");
+			stringBuilder.AppendLine("Session Ended.");
 			SetBodyText(stringBuilder.ToString());
 
 			RefreshUI();

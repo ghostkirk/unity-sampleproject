@@ -6,7 +6,9 @@ runtime:
   js_entrypoint: "build/index.js"
   js_max_count: 128
 session:
-  token_expiry_sec: 7200 # 2 hours
+  # For Testing: 300 is 5 Mins
+  # For Production: Set 2-3x the average play session duration
+  token_expiry_sec: 300 
 socket:
   max_message_size_bytes: 4096
   max_request_size_bytes: 131072

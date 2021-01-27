@@ -44,7 +44,7 @@ namespace PiratePanic
 		//TODO: Verify urls before release - srivello
 
 		// Urls
-		public const string DocumentationUrl_PiratePanic = "https://github.com/heroiclabs/unity-sampleproject-v2";
+		public const string DocumentationUrl_PiratePanic = "https://github.com/heroiclabs/unity-sampleproject";
 		public const string DocumentationUrl_Nakama = "https://heroiclabs.com/docs/index.html";
 		public const string DeveloperConsoleUrl = "http://localhost:7351/";
 

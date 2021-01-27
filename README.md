@@ -88,8 +88,7 @@ The repo includes several helpful example scenes which showcase the features of 
 * **Authentication** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example02Authentication/">Source</a>) - User authentication with Nakama server. (<a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a>)
 * **Chat** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example03Chat/">Source</a>) - Realtime chat with Nakama server. (<a href="https://heroiclabs.com/docs/social-realtime-chat/">Nakama Docs</a>)
 * **Server Runtime Method** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example04ServerRuntimeMethod/">Source</a>) - Fast embedded code runtime with Nakama server. (<a href="https://heroiclabs.com/docs/runtime-code-basics/">Nakama Docs</a>)
-* **Authoritative Multiplayer** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example05AuthoritativeMultiplayer/">Source</a>) - Realtime multiplayer with Nakama server. (<a href="https://heroiclabs.com/docs/gameplay-multiplayer-server-multiplayer/">Nakama Docs</a>)
-
+* **Realtime Multiplayer** (<a target="_blank" href="./PiratePanic/Assets/Examples/Scenes/Example05RealtimeMultiplayer/">Source</a>) - Realtime multiplayer with Nakama server. (<a href="https://heroiclabs.com/docs/gameplay-multiplayer-realtime/">Nakama Docs</a>)
 
 #### Pirate Panic Game
 

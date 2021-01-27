@@ -166,7 +166,9 @@ namespace Nakama.Examples.Example02Authentication
 			// Clear Session from RAM, if exists
 			_session = null;
 
-			// Clear Session from PlayerPrefs, if exists
+			//  -------------------------------------------
+			//  NOTE: Clear PlayerPrefs, for fresh start
+			//  -------------------------------------------
 			PlayerPrefs.DeleteKey(_DeviceIdKey);
 			PlayerPrefs.DeleteKey(_AuthTokenKey);
 

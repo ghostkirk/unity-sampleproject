@@ -22,9 +22,13 @@ using UnityEngine.UI;
 
 namespace PiratePanic
 {
-    /// <summary>
-    /// Adds all panels to the scene and handles navigation in menu.
-    /// </summary>
+	/// <summary>
+	/// Handles user authentication with Nakama server, 
+    /// and adds all panels to the scene and handles navigation in menu.
+	///
+	/// See <a href="https://heroiclabs.com/docs/unity-client-guide/#authenticate">Nakama Docs</a> for more info.
+	/// 
+	/// </summary>
     public class Scene01MainMenuController : MonoBehaviour
     {
         [SerializeField] BattleMenuUI _battleMenuUI;
@@ -46,6 +50,10 @@ namespace PiratePanic
         [SerializeField] Button _leaderboardsButton;
         [SerializeField] Button _profileButton;
 
+        //  -------------------------------------------
+        //  NOTE: Store Nakama connection data, for 
+        //        easy reuse during gameplay
+        //  -------------------------------------------
         [SerializeField] private GameConnection _connection;
 
         private void Awake()
@@ -71,11 +79,17 @@ namespace PiratePanic
 
             if (willDeleteAllPlayerPrefsOnInit)
             {
+                //  -------------------------------------------
+                //  NOTE: Clear PlayerPrefs, for fresh start
+                //  -------------------------------------------
                 PlayerPrefs.DeleteAll();
                 Debug.LogWarning($"InitializeGame() isDebug={isDebug}, willDeleteAllPlayerPrefsOnInit={willDeleteAllPlayerPrefsOnInit}");
-
             }
 
+            //  -------------------------------------------
+            //  NOTE: Create DeviceId, ideally unique 
+            //        among all players in a match
+            //  -------------------------------------------
             string deviceId = GetDeviceId();
 
             if (!string.IsNullOrEmpty(deviceId))
@@ -90,7 +104,11 @@ namespace PiratePanic
                 try
                 {
 #if !UNITY_EDITOR
-//FB works in build and is ignored in editor
+//  -------------------------------------------
+//  NOTE: Initialize Facebook, optionally
+//        available for user authentication.
+//        Unneeded and ignored in Unity Editor.
+//  -------------------------------------------
                     FB.Init(() =>
                     {
                         FB.ActivateApp();
@@ -99,17 +117,25 @@ namespace PiratePanic
                 }
                 catch
                 {
-                    // not supported on mac
+                    // Not supported on mac
                 }
 
+                //  -------------------------------------------
+                //  NOTE: Create Client
+                //  -------------------------------------------
                 var client = new Client("http", "localhost", 7350, "defaultkey", UnityWebRequestAdapter.Instance);
                 client.Timeout = 5;
+
+                //  -------------------------------------------
+                //  NOTE: Create Socket
+                //  -------------------------------------------
                 var socket = client.NewSocket(useMainThread: true);
 
+                //  -------------------------------------------
+                //  NOTE: Restore Session, if exists
+                //  -------------------------------------------
                 string storedToken = PlayerPrefs.GetString(GameConstants.AuthTokenKey, null);
                 bool isStoredToken = !string.IsNullOrEmpty(storedToken);
-
-                // Restoring authentication token from player prefs
                 ISession session = null;
 
                 if (isStoredToken)
@@ -119,6 +145,9 @@ namespace PiratePanic
 
                 bool isExpiredToken = isStoredToken && session.HasExpired(DateTime.UtcNow);
 
+                //  -------------------------------------------
+                //  NOTE: Authenticate Session, if needed
+                //  -------------------------------------------
                 if (!isStoredToken || isExpiredToken)
                 {
                     try
@@ -128,6 +157,13 @@ namespace PiratePanic
                     catch (ApiResponseException e)
                     {
                         Debug.LogWarning("Error authenticating device: " + e.Message);
+
+                        //  -------------------------------------------
+                        //  NOTE: Quit the game, if error.
+                        //        In production, consider additional
+                        //        logic to retry the connection with
+                        //        exponential backoff.
+                        //  -------------------------------------------
                         Application.Quit();
                         return;
                     }
@@ -135,6 +171,9 @@ namespace PiratePanic
 
                 try
                 {
+                    //  -------------------------------------------
+                    //  NOTE: Connect Socket
+                    //  -------------------------------------------
                     await socket.ConnectAsync(session);
 
                     if (!isStoredToken)
@@ -151,6 +190,9 @@ namespace PiratePanic
 
                 PlayerPrefs.SetString(GameConstants.AuthTokenKey, session.AuthToken);
 
+                //  -------------------------------------------
+                //  NOTE: Fetch Account
+                //  -------------------------------------------
                 IApiAccount account;
 
                 try
@@ -167,13 +209,28 @@ namespace PiratePanic
                         PlayerPrefs.DeleteKey(GameConstants.AuthTokenKey);
                     }
 
+                    //  -------------------------------------------
+                    //  NOTE: Quit the game, if error.
+                    //        In production, consider additional
+                    //        logic to retry the connection with
+                    //        exponential backoff.
+                    //  -------------------------------------------
                     Application.Quit();
                     return;
                 }
 
+                //  -------------------------------------------
+                //  NOTE: Store Nakama connection data, for 
+                //        easy reuse during gameplay
+                //  -------------------------------------------
                 _connection.Init(client, socket, account, session);
             }
 
+            //  -------------------------------------------
+            //  NOTE: Pass Connection, only to those
+            //        game systems which require Nakama
+            //        communication.
+            //  -------------------------------------------
             _battleMenuUI.Init(_connection);
             _loadingMenu.Init(_connection);
             _notificationPopup.Init(_connection);
@@ -203,9 +260,13 @@ namespace PiratePanic
                 bool isDeviceIdRandomized = GameConfigurationManager.Instance.GameConfiguration.IsDeviceIdRandomized;
                 bool isDebug = GameConfigurationManager.Instance.GameConfiguration.IsDebug;
 
+                //  -------------------------------------------
+                //  NOTE: Create DeviceId, ideally unique 
+                //        among all players in a match
+                //  -------------------------------------------
                 deviceId = isDeviceIdRandomized ?
-                System.Guid.NewGuid().ToString() :
-                SystemInfo.deviceUniqueIdentifier;
+                                System.Guid.NewGuid().ToString() :
+                                SystemInfo.deviceUniqueIdentifier;
 
                 if (isDeviceIdRandomized)
                 {

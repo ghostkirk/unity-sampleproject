@@ -20,11 +20,15 @@ using UnityEngine;
 namespace PiratePanic
 {
 	/// <summary>
-	/// Manages Nakama server user authentication and interation wrapping <see cref="ISession"/>, <see cref="IClient"/>, and <see cref="ISocket"/>.
+	/// Manages Nakama server user authentication and interation wrapping 
+	/// <see cref="ISession"/>, <see cref="IClient"/>, and <see cref="ISocket"/>.
+	/// 
 	/// </summary>
 	/// <remarks>
+	/// 
 	/// Whenever a user tries to communicate with game server it ensures that their session hasn't expired. If the
 	/// session is expired the user will have to reauthenticate the session and obtain a new session.
+	/// 
 	/// </remarks>
 	[CreateAssetMenu(fileName = "GameConnection", menuName = GameConstants.CreateAssetMenu_GameConnection)]
 	public class GameConnection : ScriptableObject

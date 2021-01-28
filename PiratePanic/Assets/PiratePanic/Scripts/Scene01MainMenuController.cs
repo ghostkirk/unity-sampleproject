@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+#if !UNITY_EDITOR
 using Facebook.Unity;
+#endif
 using Nakama;
 using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -83,7 +85,8 @@ namespace PiratePanic
                 //  NOTE: Clear PlayerPrefs, for fresh start
                 //  -------------------------------------------
                 PlayerPrefs.DeleteAll();
-                Debug.LogWarning($"InitializeGame() isDebug={isDebug}, willDeleteAllPlayerPrefsOnInit={willDeleteAllPlayerPrefsOnInit}");
+                Debug.LogWarning($"InitializeGame() isDebug={isDebug}, " +
+                    $"willDeleteAllPlayerPrefsOnInit={willDeleteAllPlayerPrefsOnInit}");
             }
 
             //  -------------------------------------------
@@ -104,11 +107,11 @@ namespace PiratePanic
                 try
                 {
 #if !UNITY_EDITOR
-//  -------------------------------------------
-//  NOTE: Initialize Facebook, optionally
-//        available for user authentication.
-//        Unneeded and ignored in Unity Editor.
-//  -------------------------------------------
+                    //  -------------------------------------------
+                    //  NOTE: Initialize Facebook, optionally
+                    //        available for user authentication.
+                    //        Unneeded and ignored in Unity Editor.
+                    //  -------------------------------------------
                     FB.Init(() =>
                     {
                         FB.ActivateApp();
@@ -138,9 +141,18 @@ namespace PiratePanic
                 bool isStoredToken = !string.IsNullOrEmpty(storedToken);
                 ISession session = null;
 
+                StringBuilder stringBuilder = new StringBuilder();
+          
+
                 if (isStoredToken)
                 {
                     session = Nakama.Session.Restore(storedToken);
+                    stringBuilder.AppendLine($"Session Restored At {DateTime.Now.ToLocalTime()}");
+
+                }
+                else
+                {
+                    stringBuilder.AppendLine($"Session Created At {DateTime.Now.ToLocalTime()}");
                 }
 
                 bool isExpiredToken = isStoredToken && session.HasExpired(DateTime.UtcNow);
@@ -167,6 +179,13 @@ namespace PiratePanic
                         Application.Quit();
                         return;
                     }
+                }
+
+                stringBuilder.AppendLine($"Session.UserId = {session.UserId}");
+                stringBuilder.AppendLine($"Session.Username = {session.Username}");
+                if (GameConfigurationManager.Instance.GameConfiguration.IsVerboseLogging)
+                {
+                    Debug.Log($"InitializeGame() Session...\n{stringBuilder.ToString()}");
                 }
 
                 try
@@ -205,7 +224,9 @@ namespace PiratePanic
 
                     if (e.StatusCode == 404)
                     {
-                        Debug.LogWarning("invalid auth token. deleting... please restart application.");
+                        Debug.LogWarning("invalid auth token. deleting... " +
+                            "please restart application.");
+
                         PlayerPrefs.DeleteKey(GameConstants.AuthTokenKey);
                     }
 
@@ -270,7 +291,8 @@ namespace PiratePanic
 
                 if (isDeviceIdRandomized)
                 {
-                    Debug.LogWarning($"GetDeviceId() isDebug={isDebug}, isDeviceIdRandomized={isDeviceIdRandomized}");
+                    Debug.LogWarning($"GetDeviceId() isDebug={isDebug}, " +
+                        $"isDeviceIdRandomized={isDeviceIdRandomized}");
                 }
 #endif
             }

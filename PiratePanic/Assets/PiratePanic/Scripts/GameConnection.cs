@@ -20,9 +20,9 @@ using UnityEngine;
 namespace PiratePanic
 {
 	/// <summary>
-	/// Manages Nakama server user authentication and interation wrapping 
-	/// <see cref="ISession"/>, <see cref="IClient"/>, and <see cref="ISocket"/>.
-	/// 
+	/// Manages Nakama server user authentication and interation wrapping the
+	/// <see cref="IClient"/>, <see cref="ISession"/>, 
+	/// <see cref="IApiAccount"/>, and <see cref="ISocket"/>.
 	/// </summary>
 	/// <remarks>
 	/// 

@@ -65,7 +65,7 @@ namespace Nakama.Examples.Example05RealtimeMultiplayer
 		//  Fields ----------------------------------------
 		[SerializeField] private ExamplesUI _examplesUI = null;
 
-		private ExampleSessionClient _exampleSessionClient = null;
+		private ExampleConnection _exampleConnection = null;
 		private IMatch _match = null;
 		private ISocket _socket = null;
 		private ISession _session = null;
@@ -82,12 +82,12 @@ namespace Nakama.Examples.Example05RealtimeMultiplayer
 			//  -------------------------------------------
 			//  NOTE: Create Client
 			//  -------------------------------------------
-			_exampleSessionClient = new ExampleSessionClient();
-			await _exampleSessionClient.Authenticate();
+			_exampleConnection = new ExampleConnection();
+			await _exampleConnection.Authenticate();
 
 			// Store Common References
-			_client = _exampleSessionClient.Client;
-			_session = _exampleSessionClient.Session;
+			_client = _exampleConnection.Client;
+			_session = _exampleConnection.Session;
 
 			//  -------------------------------------------
 			//  NOTE: Create The Socket

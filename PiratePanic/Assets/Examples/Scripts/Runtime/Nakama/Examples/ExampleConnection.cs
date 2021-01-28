@@ -15,13 +15,17 @@
  */
 
 using System;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Nakama.Examples
 {
-	public class ExampleSessionClient 
+
+	/// <summary>
+	/// Manages Nakama server user authentication and interation wrapping. 
+	/// <see cref="ISession"/> <see cref="IClient"/>.
+	/// </summary>
+	public class ExampleConnection 
 	{
 		//  Properties ------------------------------------
 		public IClient Client { get { return _client; } }
@@ -31,15 +35,18 @@ namespace Nakama.Examples
 		//  Fields ----------------------------------------
 		private const string _DeviceIdKey = "MyDeviceIdKey";
 		private const string _AuthTokenKey = "MyAuthTokenKey";
-		private ISession _session = null;
+
+		/// <summary>
+		/// Used to establish connection between the client and the server.
+		/// </summary>
 		private IClient _client = null;
 
-
-		//  Constructor   ---------------------------------
-		public ExampleSessionClient()
-		{
-
-		}
+		/// <summary>
+		/// Used to communicate with Nakama server.
+		/// For the user to send and receive messages from the server, 
+		/// the <see cref="Session"/> must not be expired.
+		/// </summary>
+		private ISession _session = null;
 
 		//  Other Methods ---------------------------------
 

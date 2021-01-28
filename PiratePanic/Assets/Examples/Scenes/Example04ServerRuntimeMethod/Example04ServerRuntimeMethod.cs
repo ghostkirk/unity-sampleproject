@@ -92,14 +92,14 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 
 		//  Fields ----------------------------------------
 		[SerializeField] private ExamplesUI _examplesUI = null;
-		private ExampleSessionClient _exampleSessionClient = null;
+		private ExampleConnection _exampleConnection = null;
 
 
 		//  Unity Methods   -------------------------------
 		protected async void Start()
 		{
-			_exampleSessionClient = new ExampleSessionClient();
-			await _exampleSessionClient.Authenticate();
+			_exampleConnection = new ExampleConnection();
+			await _exampleConnection.Authenticate();
 
 			_AddNumbersButton.Button.onClick.AddListener(AddNumbersButton_OnClicked);
 			AddNumbersButton_OnClicked();
@@ -127,8 +127,8 @@ namespace Nakama.Examples.Example04ServerRuntimeMethod
 		{
 			SetBodyText("");
 
-			IClient client = _exampleSessionClient.Client;
-			ISession session = _exampleSessionClient.Session;
+			IClient client = _exampleConnection.Client;
+			ISession session = _exampleConnection.Session;
 
 			// Build the request
 			AddNumbersRequest addNumbersRequest = new AddNumbersRequest(5, 10);

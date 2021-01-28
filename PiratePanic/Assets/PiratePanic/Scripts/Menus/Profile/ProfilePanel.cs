@@ -192,9 +192,7 @@ namespace PiratePanic
 
 			IApiStorageObjects personalStorageObjects = await _connection.Client.ReadStorageObjectsAsync(_connection.Session, personalStorageId);
 
-			// TODO: make sure storage actually makes sense
 			PlayerData playerData = new PlayerData(); 
-
 			IUserGroupListUserGroup clan = null;
 
 			try

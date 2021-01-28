@@ -41,8 +41,6 @@ namespace PiratePanic
 		public const string DeviceIdKey = "nakama.deviceId";
 		public static string AuthTokenKey = "nakama.authToken";
 
-		//TODO: Verify urls before release - srivello
-
 		// Urls
 		public const string DocumentationUrl_PiratePanic = "https://github.com/heroiclabs/unity-sampleproject";
 		public const string DocumentationUrl_Nakama = "https://heroiclabs.com/docs/index.html";

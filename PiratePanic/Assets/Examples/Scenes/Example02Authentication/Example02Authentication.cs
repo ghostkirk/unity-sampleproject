@@ -48,8 +48,18 @@ namespace Nakama.Examples.Example02Authentication
 
 		private const string _DeviceIdKey = "MyDeviceIdKey";
 		private const string _AuthTokenKey = "MyAuthTokenKey";
-		private ISession _session = null;
+
+		/// <summary>
+		/// Used to establish connection between the client and the server.
+		/// </summary>
 		private IClient _client = null;
+
+		/// <summary>
+		/// Used to communicate with Nakama server.
+		/// For the user to send and receive messages from the server, 
+		/// the <see cref="Session"/> must not be expired.
+		/// </summary>
+		private ISession _session = null;
 
 
 		//  Unity Methods   -------------------------------

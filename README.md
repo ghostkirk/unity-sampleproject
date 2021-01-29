@@ -38,12 +38,12 @@ Enjoy!
 
 ## Nakama Videos
 
-<a target="_blank" href="https://www.youtube.com/watch?v=4F7tQe2pJS0">
+<a target="_blank" href="https://www.youtube.com/playlist?list=PLOAExZcDNj9sNH275amnm9PZQM_ySyz9O">
 <img width="100%" src="./PiratePanic/Assets/PiratePanic/Documentation/Images/YouTube_Thumbnail_Playlist.png">
 </a>
 
 * **Heroic Labs YouTube Channel** (<a target="_blank" href="https://www.youtube.com/channel/UC9vXzwdHUz6EnJFdUiXk_jQ">Videos<a>) - High-level overview
-* **Pirate Panic YouTube Playlist** (<a target="_blank" href="https://www.youtube.com/watch?v=4F7tQe2pJS0">Videos<a>) - Everything about "Pirate Panic"
+* **Pirate Panic YouTube Playlist** (<a target="_blank" href="https://www.youtube.com/playlist?list=PLOAExZcDNj9sNH275amnm9PZQM_ySyz9O">Videos<a>) - Everything about "Pirate Panic"
 
 
 ## Concepts

@@ -83,8 +83,8 @@ const afterAuthenticateFacebookFn: nkruntime.AfterHookFunction<nkruntime.Session
  * Set up the user after first authentication.
  */
 function afterAuthenticate(ctx: nkruntime.Context, logger: nkruntime.Logger, nk: nkruntime.Nakama, data: nkruntime.Session) {
-    logger.info('after auth called, created: %s', data.created);
-    if (!data.created) {
+    logger.info('after auth called, created: %s', data.create);
+    if (!data.create) {
         // Account already exists.
         return
     }

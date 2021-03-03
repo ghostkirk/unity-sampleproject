@@ -45,6 +45,8 @@ namespace PiratePanic
         [SerializeField] ProfileUpdatePanel _profileUpdatePanel;
         [SerializeField] NotificationPopup _notificationPopup;
 
+        //This don't work!!
+
         [SerializeField] Button _battleButton;
         [SerializeField] Button _cardsButton;
         [SerializeField] Button _clansButton;
